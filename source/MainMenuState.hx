@@ -229,8 +229,8 @@ class MainMenuState extends MusicBeatState
 							{
 							        var daChoice:String = optionShit[curSelected];
                                                    #if charselection
-							         if(spr.ID == optionShit.length){
-									         LoadingState.loadAndSwitchState(new CharacterSelection());
+							        if(spr.ID == optionShit.length){
+							 LoadingState.loadAndSwitchState(new CharacterSelection());
                                                    }
                                                    #end
 								switch (daChoice)
