@@ -18,7 +18,7 @@ import flixel.effects.FlxFlicker;
 
 using StringTools;
 
-class ChangePlayerState extends MusicBeatState
+class CharacterSelection extends MusicBeatState
 {
 
 
