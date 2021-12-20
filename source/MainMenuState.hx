@@ -228,11 +228,11 @@ class MainMenuState extends MusicBeatState
 							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 							{
 							        var daChoice:String = optionShit[curSelected];
-                                                   #if charselection
+                                                                   #if charselection
 							        if(spr.ID == optionShit.length){
-							 LoadingState.loadAndSwitchState(new CharacterSelection());
-                                                   }
-                                                   #end
+							                          LoadingState.loadAndSwitchState(new CharacterSelection());
+                                                                   }
+                                                                   #end
 								switch (daChoice)
 								{
 									case 'story_mode':
