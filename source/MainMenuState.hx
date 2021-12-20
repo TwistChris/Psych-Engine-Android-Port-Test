@@ -104,6 +104,23 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 		}
 
+        #if charselection
+		var cst = Paths.getSparrowAtlas('chaselect');
+
+		var menuItem:FlxSprite = new FlxSprite(-500, 180);
+		menuItem.frames = cst;
+		menuItem.animation.addByPrefix('idle', "chaselect white", 24);
+		menuItem.animation.addByPrefix('selected', "chaselect basic", 24);
+		menuItem.animation.play('idle');
+		menuItem.ID = optionShit.length;
+		menuItem.screenCenter(X);
+		menuItem.x -= 335;
+		menuItems.add(menuItem);
+		menuItem.scrollFactor.set();
+		menuItem.antialiasing = true;
+		//menuItem.setGraphicSize(Std.int(menuItem.width / 0.5), Std.int(menuItem.height / 0.5));
+		#end
+
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
