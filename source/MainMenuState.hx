@@ -104,7 +104,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 		}
 
-                 #if charselection
+                #if charselection
 		var cst = Paths.getSparrowAtlas('chaselect');
 
 		var menuItem:FlxSprite = new FlxSprite(-500, 180);
