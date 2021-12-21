@@ -31,7 +31,7 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', #if ACHIEVEMENTS_ALLOWED 'awards', #end 'credits', #if !switch 'donate', #end 'options', #if charselection 'chaselect' #end];
+	var optionShit:Array<String> = ['story_mode', 'freeplay', #if ACHIEVEMENTS_ALLOWED 'awards', #end 'credits', #if !switch 'donate', #end 'options', 'chaselect'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -103,23 +103,6 @@ class MainMenuState extends MusicBeatState
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
-
-                #if charselection
-		var cst = Paths.getSparrowAtlas('chaselect');
-
-		var menuItem:FlxSprite = new FlxSprite(-500, 180);
-		menuItem.frames = cst;
-		menuItem.animation.addByPrefix('idle', "chaselect white", 24);
-		menuItem.animation.addByPrefix('selected', "chaselect basic", 24);
-		menuItem.animation.play('idle');
-		menuItem.ID = optionShit.length;
-		menuItem.screenCenter(X);
-		menuItem.x -= 335;
-		menuItems.add(menuItem);
-		menuItem.scrollFactor.set();
-		menuItem.antialiasing = true;
-		//menuItem.setGraphicSize(Std.int(menuItem.width / 0.5), Std.int(menuItem.height / 0.5));
-		#end
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
@@ -227,12 +210,8 @@ class MainMenuState extends MusicBeatState
 						{
 							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 							{
-							        var daChoice:String = optionShit[curSelected];
-                                                                #if charselection
-							        if(spr.ID == optionShit.length){
-							                LoadingState.loadAndSwitchState(new CharacterSelection());
-                                                                }
-                                                                #end
+								var daChoice:String = optionShit[curSelected];
+
 								switch (daChoice)
 								{
 									case 'story_mode':
@@ -245,10 +224,8 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										MusicBeatState.switchState(new OptionsState());
-								        #if charselection
-								        case 'chaselect':
+										case 'chaselect':
 										LoadingState.loadAndSwitchState(new CharacterSelection());
-								        #end
 								}
 							});
 						}
