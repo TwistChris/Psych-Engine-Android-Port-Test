@@ -245,8 +245,10 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										MusicBeatState.switchState(new OptionsState());
+								    #if charselection
 								        case 'chaselect':
-										MusicBeatState.switchState(new CharacterSelection());
+										LoadingState.loadAndSwitchState(new CharacterSelection());
+								    #end
 								}
 							});
 						}
