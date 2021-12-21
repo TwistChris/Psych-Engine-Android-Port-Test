@@ -746,18 +746,21 @@ class PlayState extends MusicBeatState
 
                 switch bfsel{
 			case 0:
-				boyfriend = new Boyfriend(770, 450, SONG.player1);
-				trace("beta!");
+				boyfriend = new Boyfriend(0, 0, SONG.player1);
+                                startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
 			case 1:
-				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-blue');
-				trace("blue!");
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
+				startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
 			case 2:
-				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-mean');
-				trace("mean!");
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
+				startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
 			default:
-				trace("default!");
-				boyfriend = new Boyfriend(770, 450, SONG.player1);
-
+				boyfriend = new Boyfriend(0, 0, SONG.player1);
+                                startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
                 }
 
 		switch(curStage)
