@@ -1144,7 +1144,7 @@ class PlayState extends MusicBeatState
 		{
 			if (!runCutscene)
 		    {
-	            FlxG.switchState(new VideoState2('assets/videos/' + fileName + '.webm', function()
+	            FlxG.switchState(new VideoState('assets/videos/' + fileName + '.webm', function()
 	            {
 	                FlxG.switchState(new PlayState());  
 	                runCutscene = true;                          
