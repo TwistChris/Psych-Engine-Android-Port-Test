@@ -126,6 +126,8 @@ class PlayState extends MusicBeatState
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 
+        public static var bfsel:Int = 0;
+
 	public var vocals:FlxSound;
 
 	public var dad:Character;
@@ -740,6 +742,25 @@ class PlayState extends MusicBeatState
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
+	       } 
+
+	       switch bfsel{
+			case 0:
+				boyfriend = new Boyfriend(770, 450, SONG.player1);
+				startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
+			case 1:
+				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-blue');
+	                        startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
+			case 2:
+				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-mean');
+				startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
+			default:
+				boyfriend = new Boyfriend(770, 450, SONG.player1);
+                                startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
 		}
 
 		switch(curStage)
