@@ -105,6 +105,7 @@ class MainMenuState extends MusicBeatState
 
                         #if charselection
                         menuItem.x -= 335;
+                        menuItem.y -= 135;
                         #end
 		}
 
