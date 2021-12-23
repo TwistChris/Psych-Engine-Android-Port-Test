@@ -1,4 +1,6 @@
 bf
+bf-blue
+bf-mean
 dad
 gf
 spooky
