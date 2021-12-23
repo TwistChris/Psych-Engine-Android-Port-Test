@@ -183,7 +183,7 @@
 		-30,
 		380
 	],
-	"healthicon": "mean",
+	"healthicon": "bf-mean",
 	"flip_x": true,
 	"healthbar_colors": [
 		235,
