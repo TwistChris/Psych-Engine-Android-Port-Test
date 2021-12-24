@@ -131,13 +131,13 @@ class CharacterSelection extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (_pad.buttonB.justPressed || FlxG.android.justReleased.BACK)
+		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (controls.ACCEPT || _pad.buttonA.justPressed){
+		if (controls.ACCEPT){
 			switch curSelected{
 				case 0:
 					characters.animation.play('pissbfselect');
@@ -177,7 +177,7 @@ class CharacterSelection extends MusicBeatState
 			}
 		}
 
-		if (controls.BACK || _pad.buttonB.justReleased)
+		if (controls.BACK)
 			{
 				FlxG.switchState(new MainMenuState());
 			}
