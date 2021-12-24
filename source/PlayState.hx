@@ -134,7 +134,11 @@ class PlayState extends MusicBeatState
         public var tankman:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-  
+
+        var isdad:Bool = false;
+        var istankman:Bool = false;
+	var isbf:Bool = false;
+
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<Dynamic> = [];
