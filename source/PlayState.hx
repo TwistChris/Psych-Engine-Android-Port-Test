@@ -653,6 +653,9 @@ class PlayState extends MusicBeatState
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
+
+             
+                if(PlayStateChangleables.Optimizr
 		}
 
 		add(gfGroup);
