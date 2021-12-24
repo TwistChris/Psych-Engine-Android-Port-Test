@@ -125,7 +125,6 @@ class CharacterSelection extends MusicBeatState
                 addVirtualPad(NONE, A_B);		
                 #end
 
-
 		super.create();
 	}
 
