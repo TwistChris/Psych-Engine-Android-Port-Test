@@ -27,8 +27,6 @@ class CharacterSelection extends MusicBeatState
 	var curSelected:Int = 0;
 
 
-	var _pad:FlxVirtualPad;
-
 	var BG:FlxSprite;
 
 
@@ -98,10 +96,7 @@ class CharacterSelection extends MusicBeatState
 
 
 		#if mobileC		
-                addVirtualPad(NONE, A_B);
-
-                _pad = new FlxVirtualPad(); 	
-        _pad.alpha = 0.75;		
+                addVirtualPad(NONE, A_B);		
                 #end
 
 
@@ -126,7 +121,6 @@ class CharacterSelection extends MusicBeatState
 
 
 		add(icon);
-		this.add(_pad);
 
 		changeSelection(0);
 
