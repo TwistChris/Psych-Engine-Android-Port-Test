@@ -126,21 +126,11 @@ class PlayState extends MusicBeatState
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 
-        public static var bfsel:Int = 0;
-
 	public var vocals:FlxSound;
 
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-
-        public var tankman:Character;
-
-        var istankman:Bool = false;
-        var isbf:Bool = false;
-	var isdad:Bool = false;
-
-        var player1Character:String = 'epic';
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -653,13 +643,9 @@ class PlayState extends MusicBeatState
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
-                {
+		}
 
-                tankman = new Character(-100, 100, tankman);
-             
-                if(PlayStateChangleables.Optimize) {
-
-		add(gfGroup); 
+		add(gfGroup);
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
@@ -742,6 +728,10 @@ class PlayState extends MusicBeatState
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
+
+		boyfriend = new Boyfriend(0, 0, SONG.player1);
+		startCharacterPos(boyfriend);
+		boyfriendGroup.add(boyfriend);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -750,29 +740,6 @@ class PlayState extends MusicBeatState
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
-	       } 
-
-	       switch bfsel{
-			case 0:
-				boyfriend = new Boyfriend(0, 0, SONG.player1);
-				startCharacterPos(boyfriend);
-                                boyfriendGroup.add(boyfriend);
-                                trace("beta!");
-			case 1:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
-	                        startCharacterPos(boyfriend);
-                                boyfriendGroup.add(boyfriend);
-                                trace("blue!");
-			case 2:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
-				startCharacterPos(boyfriend);
-                                boyfriendGroup.add(boyfriend);
-                                trace("mean!");
-			default:
-                                trace("default!");
-				boyfriend = new Boyfriend(0, 0, SONG.player1);
-                                startCharacterPos(boyfriend);
-                                boyfriendGroup.add(boyfriend);
 		}
 
 		switch(curStage)
@@ -1104,8 +1071,15 @@ class PlayState extends MusicBeatState
 		callOnLuas('onCreatePost', []);
 		
 		
-		super.create()
-	{
+		super.create();
+	}
+
+	public function addTextToDebug(text:String) {
+		luaDebugGroup.forEachAlive(function(spr:DebugLuaText) {
+			spr.y += 20;
+		});
+		luaDebugGroup.add(new DebugLuaText(text, luaDebugGroup));
+	}
 
 	public function reloadHealthBarColors() {
 		healthBar.createFilledBar(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
