@@ -95,9 +95,6 @@ class CharacterSelection extends MusicBeatState
 
 
 
-		#if mobileC		
-                addVirtualPad(NONE, A_B);		
-                #end
 
 
 		icon = new FlxSprite(0, 0).loadGraphic('assets/preload/images/charSelect/frame1.png');
@@ -123,6 +120,11 @@ class CharacterSelection extends MusicBeatState
 		add(icon);
 
 		changeSelection(0);
+
+                #if mobileC		
+                addVirtualPad(NONE, A_B);		
+                #end
+
 
 		super.create();
 	}
