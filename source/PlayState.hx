@@ -1105,7 +1105,7 @@ class PlayState extends MusicBeatState
 		
 		
 		super.create()
-	}
+	{
 
 	public function reloadHealthBarColors() {
 		healthBar.createFilledBar(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
