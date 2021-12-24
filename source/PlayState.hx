@@ -659,6 +659,7 @@ class PlayState extends MusicBeatState
 
              
                 if(PlayStateChangleables.Optimize)x
+                }
 
 		add(gfGroup);
 
