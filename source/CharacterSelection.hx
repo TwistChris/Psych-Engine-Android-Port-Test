@@ -98,7 +98,10 @@ class CharacterSelection extends MusicBeatState
 
 
 		#if mobileC		
-                addVirtualPad(NONE, A_B);		
+                addVirtualPad(NONE, A_B);
+
+                _pad = new FlxVirtualPad; 	
+        _pad.alpha = 0.75;		
                 #end
 
 
