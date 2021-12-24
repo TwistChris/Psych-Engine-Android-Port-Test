@@ -653,9 +653,12 @@ class PlayState extends MusicBeatState
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
+                {
+
+                tankman = new Character(-100, 100, tankman);
 
              
-                if(PlayStateChangleables.Optimizr
+                if(PlayStateChangleables.Optimize)
 		}
 
 		add(gfGroup);
@@ -741,8 +744,6 @@ class PlayState extends MusicBeatState
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
-
-                tankman = new Character(0, 0, tankman);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
