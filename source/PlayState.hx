@@ -658,8 +658,7 @@ class PlayState extends MusicBeatState
                 tankman = new Character(-100, 100, tankman);
 
              
-                if(PlayStateChangleables.Optimize)
-		}
+                if(PlayStateChangleables.Optimize)x
 
 		add(gfGroup);
 
