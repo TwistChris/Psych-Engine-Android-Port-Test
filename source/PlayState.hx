@@ -139,6 +139,8 @@ class PlayState extends MusicBeatState
         var istankman:Bool = false;
 	var isbf:Bool = false;
 
+        var player1Character:String = 'epic';
+
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<Dynamic> = [];
@@ -659,6 +661,7 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
+                add(tankmanGroup);
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
@@ -738,7 +741,7 @@ class PlayState extends MusicBeatState
 
                 tankman = new Character(0, 0, tankman);
 		startCharacterPos(tankman, true);
-		dadGroup.add(dad);
+		tankmanGroup.add(tankman);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
