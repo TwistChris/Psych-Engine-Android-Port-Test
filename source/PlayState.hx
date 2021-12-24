@@ -1104,14 +1104,7 @@ class PlayState extends MusicBeatState
 		callOnLuas('onCreatePost', []);
 		
 		
-		super.create();
-	}
-
-	public function addTextToDebug(text:String) {
-		luaDebugGroup.forEachAlive(function(spr:DebugLuaText) {
-			spr.y += 20;
-		});
-		luaDebugGroup.add(new DebugLuaText(text, luaDebugGroup));
+		super.create()
 	}
 
 	public function reloadHealthBarColors() {
