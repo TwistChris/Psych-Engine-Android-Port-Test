@@ -131,13 +131,14 @@ class PlayState extends MusicBeatState
 	public var vocals:FlxSound;
 
 	public var dad:Character;
-        public var tankman:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
 
-        var isdad:Bool = false;
+        var tankman:Character;
+
         var istankman:Bool = false;
-	var isbf:Bool = false;
+        var isbf:Bool = false;
+	var isdad:Bool = false;
 
         var player1Character:String = 'epic';
 
@@ -148,7 +149,7 @@ class PlayState extends MusicBeatState
 	private var strumLine:FlxSprite;
 
 	//Handles the new epic mega sexy cam code that i've done
-	private var camFollow:FlxPoint;
+	private var camFollow:public var tankman:Character;FlxPoint;
 	private var camFollowPos:FlxObject;
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
@@ -661,7 +662,6 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
-                add(tankmanGroup);
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
@@ -740,8 +740,6 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 
                 tankman = new Character(0, 0, tankman);
-		startCharacterPos(tankman, true);
-		tankmanGroup.add(tankman);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
