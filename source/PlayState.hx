@@ -131,9 +131,10 @@ class PlayState extends MusicBeatState
 	public var vocals:FlxSound;
 
 	public var dad:Character;
+        public var tankman:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-
+  
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<Dynamic> = [];
@@ -729,6 +730,10 @@ class PlayState extends MusicBeatState
 
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
+		dadGroup.add(dad);
+
+                tankman = new Character(0, 0, tankman);
+		startCharacterPos(tankman, true);
 		dadGroup.add(dad);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
