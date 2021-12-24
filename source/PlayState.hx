@@ -657,10 +657,9 @@ class PlayState extends MusicBeatState
 
                 tankman = new Character(-100, 100, tankman);
              
-                if(PlayStateChangleables.Optimize)
-                {
+                if(PlayStateChangleables.Optimize) {
 
-		add(gfGroup);
+		add(gfGroup); 
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
