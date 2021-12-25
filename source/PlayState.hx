@@ -2290,6 +2290,11 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
+                                   
+                                                } if (momyDad) {
+							mommy.playAnim(animToPlay + altAnim, true);
+							mommy.holdTimer = 0;
+    
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
