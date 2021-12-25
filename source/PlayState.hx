@@ -3813,7 +3813,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-        private var preventLuaRemove:Bool = false;
+        var preventLuaRemove:Bool = false;
 	override function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
