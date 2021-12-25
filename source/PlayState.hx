@@ -657,8 +657,6 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-                if (curStage == 'stage')
-
                 if (momyDad) add(mommy);
 		add(dadGroup);
 		add(boyfriendGroup);
@@ -754,23 +752,23 @@ class PlayState extends MusicBeatState
 
 		switch bfsel{
 			case 0:
-				boyfriend = new Boyfriend(770, 450, SONG.player1);
+				boyfriend = new Boyfriend(0, 0, SONG.player1);
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("beta!");
 			case 1:
-				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-blue');
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("blue!");
 			case 2:
-				boyfriend = new Boyfriend(770, 450, SONG.player1 + '-mean');
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("mean!");
 			default:
 				trace("default!");
-				boyfriend = new Boyfriend(770, 450, SONG.player1);
+				boyfriend = new Boyfriend(0, 0, SONG.player1);
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 		}
@@ -3703,7 +3701,56 @@ class PlayState extends MusicBeatState
 		}
 		if(gf.animOffsets.exists('scared')) {
 			gf.playAnim('scared', true);
+        }                
+        
+        function resetCharacters():Void
+	        {
+		        isbf = false;
+		        isdad = false;
+                        momyDad = false;
+                }
+
+                function switchCharacter(characters:String):Void
+	              {
+		        switch(characters)
+		        {
+		            case 'bf':
+			            isbf = true;
+		            case 'dad':
+			            isdad = true;
+                            case 'tricky':
+			            momyDad = true;
+                        }
+                      }
+                
+                var stepOfLast = 0;
+
+	override function stepHit()
+	{
+		super.stepHit();
+		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
+		{
+			resyncVocals();
 		}
+
+		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
+		{
+			// dad.dance();
+		}
+
+                if (curStage == 'mall' && curStep != stepOfLast)
+		{
+			switch(curStep)
+			{
+				case 100:
+					resetCharacters();
+					switchCharacter('mom');
+                                case 150:
+					switchCharacters(dad);
+					switchCharacter('bf');
+
+
+
 
 		if(ClientPrefs.camZooms) {
 			FlxG.camera.zoom += 0.015;
