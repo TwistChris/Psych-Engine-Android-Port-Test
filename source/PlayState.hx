@@ -3718,15 +3718,14 @@ class PlayState extends MusicBeatState
 			            isbf = true;
 		            case 'dad':
 			            isdad = true;
-                            case 'tricky':
+                            case 'mom':
 			            momyDad = true;
                         }
                       }
                 
                 var stepOfLast = 0;
 
-       override { function stepHit()
-                 { 
+    override function stepHit() { 
 
 		super.stepHit();
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
