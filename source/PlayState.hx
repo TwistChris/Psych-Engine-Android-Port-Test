@@ -3811,7 +3811,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	override function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
 			luaArray[i].call('onDestroy', []);
