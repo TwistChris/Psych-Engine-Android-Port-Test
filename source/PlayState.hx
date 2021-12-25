@@ -3748,9 +3748,13 @@ class PlayState extends MusicBeatState
                                 case 150:
 					switchCharacters(dad);
 					switchCharacter('bf');
-
-
-
+                                case 250:
+                                        resetCharacters();
+					switchCharacters(dad);
+					switchCharacter('mom');
+                stepOfLast = curStep;
+		         }
+	        }
 
 		if(ClientPrefs.camZooms) {
 			FlxG.camera.zoom += 0.015;
