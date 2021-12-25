@@ -3725,7 +3725,7 @@ class PlayState extends MusicBeatState
                 
                 var stepOfLast = 0;
 
-override function stepHit()
+       override { function stepHit()
                  { 
 
 		super.stepHit();
