@@ -3723,9 +3723,7 @@ class PlayState extends MusicBeatState
                         }
                       }
                 
-          var stepOfLast = 0;
-
-     override function stepHit()
+             var stepOfLast = 0;
              {
 		super.stepHit();
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
