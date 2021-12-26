@@ -3704,14 +3704,14 @@ class PlayState extends MusicBeatState
         }                
         
         function resetCharacters():Void
-	        {
+	{
 		        isbf = false;
 		        isdad = false;
                         momyDad = false;
-                }
+        }
 
-                function switchCharacter(characters:String):Void
-	              {
+        function switchCharacter(characters:String):Void
+	{
 		        switch(characters)
 		        {
 		            case 'bf':
@@ -3721,7 +3721,7 @@ class PlayState extends MusicBeatState
                             case 'mom':
 			            momyDad = true;
                         }
-                      }
+        }
                 
         var stepOfLast = 0;
 
