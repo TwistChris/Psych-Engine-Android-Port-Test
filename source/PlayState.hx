@@ -126,17 +126,11 @@ class PlayState extends MusicBeatState
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 
-        public static var bfsel:Int = 0;
-
 	public var vocals:FlxSound;
 
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-
-        private var mommy:Character;
-
-        var momyDad:Bool = false;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -657,7 +651,6 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-                if (momyDad) add(mommy);
 		add(dadGroup);
 		add(boyfriendGroup);
 		
@@ -736,10 +729,9 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-                if (momyDad)
-		{
-			mommy = new Character ( -220, 150, "mom");
-		}
+		boyfriend = new Boyfriend(0, 0, SONG.player1);
+		startCharacterPos(boyfriend);
+		boyfriendGroup.add(boyfriend);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -748,29 +740,6 @@ class PlayState extends MusicBeatState
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
-	        }
-
-		switch bfsel{
-			case 0:
-				boyfriend = new Boyfriend(0, 0, SONG.player1);
-                                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-				trace("beta!");
-			case 1:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
-                                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-				trace("blue!");
-			case 2:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
-                                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-				trace("mean!");
-			default:
-				trace("default!");
-				boyfriend = new Boyfriend(0, 0, SONG.player1);
-                                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
 		}
 
 		switch(curStage)
@@ -2288,11 +2257,6 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
-                                   
-                                                } if (momyDad) {
-							mommy.playAnim(animToPlay + altAnim, true);
-							mommy.holdTimer = 0;
-    
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
@@ -3701,63 +3665,24 @@ class PlayState extends MusicBeatState
 		}
 		if(gf.animOffsets.exists('scared')) {
 			gf.playAnim('scared', true);
-        }                
-        
-        function resetCharacters():Void
-	{
-		 isbf = false;
-		 isdad = false;
-                 momyDad = false;
-        }
-
-        function switchCharacter(characters:String):Void
-	{
-		switch(characters)
-		{
-		case 'bf':
-		       isbf = true;
-		case 'dad':
-		       isdad = true;
-                case 'mom':
-		       momyDad = true;
-                }
-        }
-                
-        var stepOfLast = 0;
-
-        } function stepHit()
-        {
-		super.stepHit();
-		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
-		{
-			resyncVocals();
 		}
 
-		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
-		{
-			// dad.dance();
+		if(ClientPrefs.camZooms) {
+			FlxG.camera.zoom += 0.015;
+			camHUD.zoom += 0.03;
+
+			if(!camZooming) { //Just a way for preventing it to be permanently zoomed until Skid & Pump hits a note
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.5);
+				FlxTween.tween(camHUD, {zoom: 1}, 0.5);
+			}
 		}
 
-                if (curStage == 'mall' && curStep != stepOfLast)
-		{
-			switch(curStep)
-			{
-				case 100:
-					resetCharacters();
-					switchCharacter('mom');
-                                case 150:
-					switchCharacters(dad);
-					switchCharacter('bf');
-                                case 250:
-                                        resetCharacters();
-					switchCharacters(dad);
-      		                        switchCharacter('mom');
-                                        }
-                        }
-                        stepOfLast = curStep;
-		         
-	        }
-        }
+		if(ClientPrefs.flashing) {
+			halloweenWhite.alpha = 0.4;
+			FlxTween.tween(halloweenWhite, {alpha: 0.5}, 0.075);
+			FlxTween.tween(halloweenWhite, {alpha: 0}, 0.25, {startDelay: 0.15});
+		}
+	}
 
 	function killHenchmen():Void
 	{
@@ -3799,8 +3724,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-        private var preventLuaRemove:Bool = false;
-        function destroy() {
+	private var preventLuaRemove:Bool = false;
+	override function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
 			luaArray[i].call('onDestroy', []);
@@ -3810,7 +3735,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-        function cancelFadeTween() {
+	public function cancelFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
