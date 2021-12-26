@@ -3816,8 +3816,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-        var preventLuaRemove:Bool = false;
-        function destroy() {
+        private var preventLuaRemove:Bool = false;
+        override function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
 			luaArray[i].call('onDestroy', []);
@@ -3827,7 +3827,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-        } function cancelFadeTween() {
+        override function cancelFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
