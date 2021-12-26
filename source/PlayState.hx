@@ -3725,7 +3725,7 @@ class PlayState extends MusicBeatState
                 
         var stepOfLast = 0;
 
-        override function stepHit()
+        } function stepHit()
         {
 		super.stepHit();
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
@@ -3816,8 +3816,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-        private var preventLuaRemove:Bool = false;
-	override function destroy() {
+        var preventLuaRemove:Bool = false;
+        function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
 			luaArray[i].call('onDestroy', []);
@@ -3827,7 +3827,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-	override function cancelFadeTween() {
+        } function cancelFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
