@@ -3725,7 +3725,7 @@ class PlayState extends MusicBeatState
                 
         var stepOfLast = 0;
 
-        { function stepHit()
+        override function stepHit()
         {
 		super.stepHit();
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
@@ -3824,7 +3824,7 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-	} function cancelFadeTween() {
+	override function cancelFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
 		}
