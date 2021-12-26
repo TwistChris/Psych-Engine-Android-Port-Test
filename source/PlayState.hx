@@ -3705,22 +3705,22 @@ class PlayState extends MusicBeatState
         
         function resetCharacters():Void
 	{
-		        isbf = false;
-		        isdad = false;
-                        momyDad = false;
+		 isbf = false;
+		 isdad = false;
+                 momyDad = false;
         }
 
         function switchCharacter(characters:String):Void
 	{
-		        switch(characters)
-		        {
-		            case 'bf':
-			            isbf = true;
-		            case 'dad':
-			            isdad = true;
-                            case 'mom':
-			            momyDad = true;
-                        }
+		switch(characters)
+		{
+		case 'bf':
+		       isbf = true;
+		case 'dad':
+		       isdad = true;
+                case 'mom':
+		       momyDad = true;
+                }
         }
                 
         var stepOfLast = 0;
@@ -3751,10 +3751,13 @@ class PlayState extends MusicBeatState
                                 case 250:
                                         resetCharacters();
 					switchCharacters(dad);
-					switchCharacter('mom');
-                stepOfLast = curStep;
-		         }
+      		                        switchCharacter('mom');
+                                        }
+                        }
+                        stepOfLast = curStep;
+		         
 	        }
+        }
 
 		if(ClientPrefs.camZooms) {
 			FlxG.camera.zoom += 0.015;
@@ -3813,8 +3816,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-        var preventLuaRemove:Bool = false;
-	function destroy() {
+        private var preventLuaRemove:Bool = false;
+	override function destroy() {
 		preventLuaRemove = true;
 		for (i in 0...luaArray.length) {
 			luaArray[i].call('onDestroy', []);
