@@ -111,12 +111,15 @@ class PlayState extends MusicBeatState
 	public var DAD_Y:Float = 100;
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
+        public var MOM_X:Float = 70;
+	public var MOM_Y:Float = 70;
 	
 	public static var songSpeed:Float = 0;
 	
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
+        public var momGroup:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -357,6 +360,7 @@ class PlayState extends MusicBeatState
 				boyfriend: [770, 100],
 				girlfriend: [400, 130],
 				opponent: [100, 100]
+                                opponent2: [100, 100]
 			};
 		}
 
@@ -368,10 +372,13 @@ class PlayState extends MusicBeatState
 		GF_Y = stageData.girlfriend[1];
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
+                MOM_X = stageData.opponent2[0];
+		MOM_Y = stageData.opponent2[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
+                momGroup = new FlxSpriteGroup(MOM_X, MOM_Y);
 
 		switch (curStage)
 		{
@@ -660,6 +667,7 @@ class PlayState extends MusicBeatState
 
 		add(dadGroup);
 		add(boyfriendGroup);
+                add(momGroup);
                 if (momyDad) add(mommy);
 		
 		if(curStage == 'spooky') {
@@ -736,6 +744,10 @@ class PlayState extends MusicBeatState
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
+
+                mom = new Character(0, 0, "mom");
+		startCharacterPos(mom, true);
+		momGroup.add(mom);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
