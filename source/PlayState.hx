@@ -136,11 +136,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-        public var mommy:Character;
-
-        var isbf:Bool = false;
-	var isdad:Bool = false;
-        var momyDad:Bool = false;
+        public var mom:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -360,7 +356,7 @@ class PlayState extends MusicBeatState
 				boyfriend: [770, 100],
 				girlfriend: [400, 130],
 				opponent: [100, 100],
-                                opponent2: [100, 100]
+                                opponent: [100, 100]
 			};
 		}
 
@@ -372,8 +368,8 @@ class PlayState extends MusicBeatState
 		GF_Y = stageData.girlfriend[1];
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
-                MOM_X = stageData.opponent2[0];
-		MOM_Y = stageData.opponent2[1];
+                MOM_X = stageData.opponent[0];
+		MOM_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
@@ -752,11 +748,6 @@ class PlayState extends MusicBeatState
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
 		camPos.y += gf.cameraPosition[1];
-
-                if (momyDad)
-		{
-			mommy = new Character ( -130, 350, "mom");
-		}
 
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
