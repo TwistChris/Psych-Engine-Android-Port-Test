@@ -133,8 +133,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-
-        private var mommy:Character;
+        public var mommy:Character;
 
         var isbf:Bool = false;
 	var isdad:Bool = false;
