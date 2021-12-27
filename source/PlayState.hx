@@ -310,7 +310,7 @@ class PlayState extends MusicBeatState
 		switch (SONG.song.toLowerCase())
 		{
                       momyDad = true;
-                }
+                };
 
 		#if desktop
 		storyDifficultyText = '' + CoolUtil.difficultyStuff[storyDifficulty][0];
