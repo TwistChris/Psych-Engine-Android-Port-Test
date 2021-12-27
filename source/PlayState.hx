@@ -355,8 +355,7 @@ class PlayState extends MusicBeatState
 			
 				boyfriend: [770, 100],
 				girlfriend: [400, 130],
-				opponent: [100, 100],
-                                opponent: [100, 100]
+				opponent: [100, 100]
 			};
 		}
 
@@ -664,7 +663,6 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
                 add(momGroup);
-                if (momyDad) add(mommy);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -741,7 +739,7 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-                mom = new Character(0, 0, "mom");
+                mom = new Character(-100, 100, "mom");
 		startCharacterPos(mom, true);
 		momGroup.add(mom);
 		
