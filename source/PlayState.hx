@@ -134,6 +134,14 @@ class PlayState extends MusicBeatState
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
 
+        private var mommy:Character;
+
+        var isbf:Bool = false;
+	var isdad:Bool = false;
+        var momyDad:Bool = false;
+
+        momyDad = true;
+
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<Dynamic> = [];
@@ -632,7 +640,7 @@ class PlayState extends MusicBeatState
 					bgGhouls = new BGSprite('weeb/bgGhouls', -100, 190, 0.9, 0.9, ['BG freaks glitch instance'], false);
 					bgGhouls.setGraphicSize(Std.int(bgGhouls.width * daPixelZoom));
 					bgGhouls.updateHitbox();
-					bgGhouls.visible = false;
+				        bgGhouls.visible = false;
 					bgGhouls.antialiasing = false;
 					add(bgGhouls);
 				} else {
@@ -655,6 +663,7 @@ class PlayState extends MusicBeatState
 
 		add(dadGroup);
 		add(boyfriendGroup);
+                if (momyDad) add(mommy);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -734,6 +743,11 @@ class PlayState extends MusicBeatState
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
 		camPos.y += gf.cameraPosition[1];
+
+                if (momyDad)
+		{
+			momy = new Character ( -130, 350, "mommy");
+		}
 
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
