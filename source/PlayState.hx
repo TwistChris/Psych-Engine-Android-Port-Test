@@ -305,13 +305,6 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
-                mania = SONG.mania;
-		
-		switch (SONG.song.toLowerCase())
-		{
-                        momyDad = true;
-                }
-
 		#if desktop
 		storyDifficultyText = '' + CoolUtil.difficultyStuff[storyDifficulty][0];
 
