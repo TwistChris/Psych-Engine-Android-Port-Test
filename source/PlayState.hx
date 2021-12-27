@@ -743,7 +743,7 @@ class PlayState extends MusicBeatState
 
                 if (momyDad)
 		{
-			momy = new Character ( -130, 350, "mommy");
+			mommy = new Character ( -130, 350, "mom");
 		}
 
 		if(dad.curCharacter.startsWith('gf')) {
