@@ -140,8 +140,6 @@ class PlayState extends MusicBeatState
 	var isdad:Bool = false;
         var momyDad:Bool = false;
 
-        momyDad = true;
-
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<Dynamic> = [];
@@ -306,6 +304,13 @@ class PlayState extends MusicBeatState
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
+
+                mania = SONG.mania;
+		
+		switch (SONG.song.toLowerCase())
+		{
+                      momyDad = true;
+                }
 
 		#if desktop
 		storyDifficultyText = '' + CoolUtil.difficultyStuff[storyDifficulty][0];
