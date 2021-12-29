@@ -764,6 +764,10 @@ class PlayState extends MusicBeatState
 			mom.visible = false;
                 }
 
+                if(dad.curCharacter.startsWith('pico')) {
+			mom.visible = false;
+                }
+
                 if(dad.curCharacter.startsWith('mom')) {
 			mom.visible = false;
                 }
@@ -1364,7 +1368,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 					}
-                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
+                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing') && !mom.stunned)
 					{
 						mom.dance();
 					}
