@@ -752,7 +752,7 @@ class PlayState extends MusicBeatState
 			gf.visible = false;
                 }
               
-                if(dad.curCharacter.startsWith('gf', 'pico')) {
+                if(dad.curCharacter.startsWith('gf')) {
 			mom.visible = false;
                 }
 
