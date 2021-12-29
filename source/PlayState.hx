@@ -751,9 +751,6 @@ class PlayState extends MusicBeatState
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
 
-                if(dad.curCharacter.startsWith('gf', 'pico', 'senpai')) {
-			mom.visible = false;
-
                 }
 
 		switch bfsel{
