@@ -1364,6 +1364,10 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 					}
+                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
+					{
+						mom.dance();
+					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
 						dad.dance();
