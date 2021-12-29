@@ -739,7 +739,7 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-                mom = new Character(-100, 100, "mom");
+                mom = new Character(-130, 60, "mom");
 		startCharacterPos(mom, true);
 		momGroup.add(mom);
 		
