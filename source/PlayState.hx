@@ -756,6 +756,34 @@ class PlayState extends MusicBeatState
 			mom.visible = false;
                 }
 
+                if(dad.curCharacter.startsWith('spooky')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('monster')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('mom')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('parents-christmas')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('senpai')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('spirit')) {
+			mom.visible = false;
+                }
+
+                if(dad.curCharacter.startsWith('tankman')) {
+			mom.visible = false;
+                }
+
 		switch bfsel{
 			case 0:
 				boyfriend = new Boyfriend(0, 0, SONG.player1);
