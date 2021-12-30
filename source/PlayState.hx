@@ -1616,14 +1616,15 @@ class PlayState extends MusicBeatState
 		                        if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
                                         if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
                                         
-					if (section.gfSection){
+					if (!section.gfSection){
 							trace("got gf section");
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
                                         }
-
-					if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
+                                        if (!section.momSection){
+                                                        trace("got mom section");
+					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
 							swagNote.noteType = 'MOM Sing';
 							trace("got mom notes");
 						}
