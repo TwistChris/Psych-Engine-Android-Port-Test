@@ -1612,10 +1612,8 @@ class PlayState extends MusicBeatState
 					swagNote.mustPress = gottaHitNote;
 					swagNote.sustainLength = songNotes[2];
 					swagNote.noteType = songNotes[3];
-                                        swagNote.noteType = songNotes[5];
 		                        if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
-                                        if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
-                                        
+                                       
 
 					if (section.gfSection){
 							trace("got gf section");
@@ -1623,6 +1621,9 @@ class PlayState extends MusicBeatState
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
                                         }
+
+                                        swagNote.noteType = songNotes[5];
+                                        if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
                                              
 
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
