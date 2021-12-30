@@ -58,7 +58,8 @@ class ChartingState extends MusicBeatState
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
-		'No Animation'
+		'No Animation',
+                'MOM Sing'
 	];
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
 	private var noteTypeMap:Map<String, Null<Int>> = new Map<String, Null<Int>>();
@@ -951,6 +952,12 @@ class ChartingState extends MusicBeatState
 
 				case 'GF section':
 					_song.notes[curSection].gfSection = check.checked;
+
+					updateGrid();
+					updateHeads();
+
+                                case 'MOM section':
+					_song.notes[curSection].momSection = check.checked;
 
 					updateGrid();
 					updateHeads();
