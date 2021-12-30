@@ -956,12 +956,6 @@ class ChartingState extends MusicBeatState
 					updateGrid();
 					updateHeads();
 
-                                case 'MOM section':
-					_song.notes[curSection].momSection = check.checked;
-
-					updateGrid();
-					updateHeads();
-
 				case 'Change BPM':
 					_song.notes[curSection].changeBPM = check.checked;
 					FlxG.log.add('changed bpm shit');
