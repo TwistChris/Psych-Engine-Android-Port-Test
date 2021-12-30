@@ -1622,10 +1622,9 @@ class PlayState extends MusicBeatState
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
-                                                }
+                                        }
                                              
 
-                                        else if (section.momSection){
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
 							swagNote.noteType = 'MOM Sing';
 							trace("got mom notes");
@@ -2343,14 +2342,10 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
-
                                                 if(daNote.noteType == 'MOM Sing') {
 							mom.playAnim(animToPlay + altAnim, true);
 							mom.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
-						}
+						} 
 					}
 
 					if (SONG.needsVoices)
