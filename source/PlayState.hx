@@ -1580,7 +1580,7 @@ class PlayState extends MusicBeatState
 				for (songNotes in section.sectionNotes)
 				{
 					if(songNotes[1] < 0) {
-						eventNotes.push([songNotes[0], songNotes[1], songNotes[2], songNotes[3], songNotes[4], songNotes[5]]);
+						eventNotes.push([songNotes[0], songNotes[1], songNotes[2], songNotes[3], songNotes[4]]);
 						eventPushed(songNotes);
 					}
 				}
@@ -1612,23 +1612,13 @@ class PlayState extends MusicBeatState
 					swagNote.mustPress = gottaHitNote;
 					swagNote.sustainLength = songNotes[2];
 					swagNote.noteType = songNotes[3];
-                                        swagNote.noteType = songNotes[5];
 					if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
-                                        if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts			
-					
+                                        
 					if (section.gfSection){
 							trace("got gf section");
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
-                                                }
-
-                                        if (section.momSection){
-							trace("got mom section");
-						if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
-							swagNote.noteType = 'MOM Sing';
-							trace("got mom notes");
-  
 						}
 					}
 					
@@ -2339,14 +2329,6 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
-						}
-
-                                                if(daNote.noteType == 'MOM Sing') {
-							mom.playAnim(animToPlay + altAnim, true);
-							mom.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
