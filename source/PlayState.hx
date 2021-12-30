@@ -1621,8 +1621,10 @@ class PlayState extends MusicBeatState
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
-						}
-
+				                }
+								
+                                        if (section.momSection){
+							trace("got mom section");
 						if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
 							swagNote.noteType = 'MOM Sing';
 							trace("got mom notes");
@@ -2856,12 +2858,24 @@ class PlayState extends MusicBeatState
 			}else{
 				callOnLuas('onMoveCamera', ['dad']);
 			}
+                        
+                        if (SONG.notes[id].momSection){
+				callOnLuas('onMoveCamera', ['mom']);
+			}else{
+				callOnLuas('onMoveCamera', ['dad']);
+			}
 		}
 		else
 		{
 			moveCamera(false);
 			if (SONG.notes[id].gfSection){
 				callOnLuas('onMoveCamera', ['gf']);
+			}else{
+				callOnLuas('onMoveCamera', ['boyfriend']);
+                        }
+
+                        if (SONG.notes[id].momSection){
+				callOnLuas('onMoveCamera', ['mom']);
 			}else{
 				callOnLuas('onMoveCamera', ['boyfriend']);
 			}
