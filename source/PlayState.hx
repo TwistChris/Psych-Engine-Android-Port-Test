@@ -1602,11 +1602,6 @@ class PlayState extends MusicBeatState
 						gottaHitNote = !section.mustHitSection;
 					}
 
-                                        if (songNotes[1] > 5)
-					{
-						gottaHitNote = !section.mustHitSection;
-					}
-
 					var oldNote:Note;
 					if (unspawnNotes.length > 0)
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
@@ -1629,7 +1624,6 @@ class PlayState extends MusicBeatState
 							trace("got gf notes");
                                                 }
                                              
-
                                         if (!section.momSection){
                                                         trace("got mom section");
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
