@@ -1597,7 +1597,7 @@ class PlayState extends MusicBeatState
 
 					var gottaHitNote:Bool = section.mustHitSection;
 
-					if (songNotes[1] > 3)
+					if (songNotes[1] > 3, 5)
 					{
 						gottaHitNote = !section.mustHitSection;
 					}
@@ -1621,7 +1621,9 @@ class PlayState extends MusicBeatState
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
-                                        }
+                                                }
+                                             
+
                                         if (!section.momSection){
                                                         trace("got mom section");
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
