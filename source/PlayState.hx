@@ -1611,8 +1611,8 @@ class PlayState extends MusicBeatState
 					var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 					swagNote.mustPress = gottaHitNote;
 					swagNote.sustainLength = songNotes[2];
-					swagNote.noteType = songNotes[3];
-					if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
+					swagNote.noteType = songNotes[3], songNotes[5];
+					if(!Std.isOfType([songNotes[3], songNotes [5]], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3], [songNotes5]]; //Backward compatibility + compatibility with Week 7 charts
                                         
 					if (section.gfSection){
 							trace("got gf section");
