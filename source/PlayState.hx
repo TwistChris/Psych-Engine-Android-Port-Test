@@ -2340,6 +2340,7 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
+
                                                 if(daNote.noteType == 'MOM Sing') {
 							mom.playAnim(animToPlay + altAnim, true);
 							mom.holdTimer = 0;
@@ -2506,8 +2507,8 @@ class PlayState extends MusicBeatState
 			}
 
 			var value1:String = '';
-			if(eventNotes[0][3] != null)
-				value1 = eventNotes[0][3];
+			if(eventNotes[0][3][5] != null)
+				value1 = eventNotes[0][3][5];
 
 			var value2:String = '';
 			if(eventNotes[0][4] != null)
