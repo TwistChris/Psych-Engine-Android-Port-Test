@@ -1626,8 +1626,7 @@ class PlayState extends MusicBeatState
                                         if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
 
 
-                                              if (section.momSection){
-							trace("got mom section");
+                                         if(section.mom){
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
 							swagNote.noteType = 'MOM Sing';
 							trace("got mom notes");
