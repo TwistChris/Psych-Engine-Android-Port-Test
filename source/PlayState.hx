@@ -1622,6 +1622,13 @@ class PlayState extends MusicBeatState
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
 						}
+
+                                        if (section.momSection){
+							trace("got mom section");
+						if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
+							swagNote.noteType = 'MOM Sing';
+							trace("got mom notes");
+						}
 					}
 					
 					swagNote.scrollFactor.set();
