@@ -2924,6 +2924,13 @@ class PlayState extends MusicBeatState
 			camFollow.x += gf.cameraPosition[0];
 			camFollow.y += gf.cameraPosition[1];
 			tweenCamIn();
+                }
+                if (SONG.notes[Std.int(curStep / 16)].momSection){
+			
+			camFollow.set(mom.getMidpoint().x, mom.getMidpoint().y);
+			camFollow.x += mom.cameraPosition[0];
+			camFollow.y += mom.cameraPosition[1];
+			tweenCamIn();
 		}
 		
 	}
