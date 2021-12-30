@@ -1620,15 +1620,6 @@ class PlayState extends MusicBeatState
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
 							swagNote.noteType = 'GF Sing';
 							trace("got gf notes");
-                                        }
-
-                                        swagNote.noteType = songNotes[5];
-                                        if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
-
-
-					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
-							swagNote.noteType = 'MOM Sing';
-							trace("got mom notes");
 						}
 					}
 					
@@ -2343,10 +2334,6 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
-                                                if(daNote.noteType == 'MOM Sing') {
-							mom.playAnim(animToPlay + altAnim, true);
-							mom.holdTimer = 0;
-						} 
 					}
 
 					if (SONG.needsVoices)
