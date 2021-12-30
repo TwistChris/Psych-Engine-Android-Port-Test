@@ -1625,7 +1625,7 @@ class PlayState extends MusicBeatState
                                                 }
                                              
 
-                                        if (section.momSection){
+                                        else if (section.momSection){
 					         if (songNotes[5] == null || songNotes[5] == ''|| songNotes[5].length ==0){
 							swagNote.noteType = 'MOM Sing';
 							trace("got mom notes");
