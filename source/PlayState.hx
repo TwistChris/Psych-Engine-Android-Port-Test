@@ -1597,7 +1597,12 @@ class PlayState extends MusicBeatState
 
 					var gottaHitNote:Bool = section.mustHitSection;
 
-					if (songNotes[1] > 3, 5)
+					if (songNotes[1] > 3)
+					{
+						gottaHitNote = !section.mustHitSection;
+					}
+
+                                        if (songNotes[1] > 5)
 					{
 						gottaHitNote = !section.mustHitSection;
 					}
@@ -1616,6 +1621,7 @@ class PlayState extends MusicBeatState
 		                        if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
                                         if(!Std.isOfType(songNotes[5], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[5]]; //Backward compatibility + compatibility with Week 7 charts
                                         
+
 					if (!section.gfSection){
 							trace("got gf section");
 						if (songNotes[3] == null || songNotes[3] == ''|| songNotes[3].length ==0){
