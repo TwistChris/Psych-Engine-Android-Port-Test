@@ -2330,16 +2330,10 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
 						}
                                                 if(daNote.noteType == 'MOM Sing') {
 							mom.playAnim(animToPlay + altAnim, true);
 							mom.holdTimer = 0;
-                                                } else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
 						}
 					}
 
@@ -3579,17 +3573,11 @@ class PlayState extends MusicBeatState
 				if(note.noteType == 'GF Sing') {
 					gf.playAnim(animToPlay + daAlt, true);
 					gf.holdTimer = 0;
-				} else {
-					boyfriend.playAnim(animToPlay + daAlt, true);
-					boyfriend.holdTimer = 0;
 				}
 
                                 if(note.noteType == 'MOM Sing') {
 				        mom.playAnim(animToPlay + daAlt, true);
 					mom.holdTimer = 0;
-				} else {
-					boyfriend.playAnim(animToPlay + daAlt, true);
-					boyfriend.holdTimer = 0;
 				}
 
 				if(note.noteType == 'Hey!') {
