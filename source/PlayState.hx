@@ -2334,6 +2334,13 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
+                                                if(daNote.noteType == 'MOM Sing') {
+							mom.playAnim(animToPlay + altAnim, true);
+							mom.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+						}
 					}
 
 					if (SONG.needsVoices)
