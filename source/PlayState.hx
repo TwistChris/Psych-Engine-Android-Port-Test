@@ -740,7 +740,7 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 
                 mom = new Character(-130, 60, "mom");
-		startCharacterPos(mom, true);
+		startCharacterPos(mom);
 		momGroup.add(mom);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
@@ -1368,7 +1368,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 					}
-                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing') && !mom.stunned)
+                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
 					{
 						mom.dance();
 					}
