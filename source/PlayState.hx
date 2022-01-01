@@ -117,12 +117,12 @@ class PlayState extends MusicBeatState
 	public var DAD2_Y:Float = 100;
 	public var SPOOKY_X:Float = 100;
 	public var SPOOKY_Y:Float = 100;
-	public var MONSTER_X:Float = 400;
-	public var MONSTER_Y:Float = 130;
+	public var MONSTER_X:Float = 40;
+	public var MONSTER_Y:Float = 10;
         public var PICO_X:Float = 70;
 	public var PICO_Y:Float = 70;
-        public var SPIRIT_X:Float = 400;
-	public var SPIRIT_Y:Float = 130;
+        public var SPIRIT_X:Float = 40;
+	public var SPIRIT_Y:Float = 10;
         public var WHITTY_X:Float = 70;
 	public var WHITTY_Y:Float = 70;
 	
@@ -157,9 +157,9 @@ class PlayState extends MusicBeatState
         public var mom:Character;
         public var dad2:Character;
 	public var spooky:Character;
-	public var monster:Boyfriend;
+	public var monster:Character;
         public var pico:Character;
-        public var spirit:Boyfriend;
+        public var spirit:Character;
         public var whitty:Character;
 
 	public var notes:FlxTypedGroup<Note>;
@@ -800,15 +800,15 @@ class PlayState extends MusicBeatState
 		spookyGroup.add(spooky);
              
                 monster = new Character(-200, 60, "monster");
-		startCharacterPos(monster, true);
+		startCharacterPos(monster);
 		monsterGroup.add(monster);
 
                 pico = new Character(150, 0, "pico");
 		startCharacterPos(pico);
 		picoGroup.add(pico);
           
-                spirit = new Character(-160, 200, "spirit");
-		startCharacterPos(spirit, true);
+                spirit = new Character(-160, 400, "spirit");
+		startCharacterPos(spirit);
 		spiritGroup.add(spirit);
 
                 whitty = new Character(-240, 80, "whitty");
