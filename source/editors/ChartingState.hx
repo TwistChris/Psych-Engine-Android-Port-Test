@@ -59,12 +59,12 @@ class ChartingState extends MusicBeatState
 		'Hurt Note',
 		'GF Sing',
 		'No Animation',
-                'MOM Sing'
-                'DAD Sing'
-                'SPOOKY Sing'
-                'MONSTER Sing'
-                'PICO Sing'
-                'SPIRIT Sing'
+                'MOM Sing',
+                'DAD Sing',
+                'SPOOKY Sing',
+                'MONSTER Sing',
+                'PICO Sing',
+                'SPIRIT Sing',
                 'WHITTY Sing'
 	];
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
