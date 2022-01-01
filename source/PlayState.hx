@@ -837,7 +837,7 @@ class PlayState extends MusicBeatState
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			nothing = new Character(-200, 60, "nothing");
+			monster = new Character(-200, 60, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
