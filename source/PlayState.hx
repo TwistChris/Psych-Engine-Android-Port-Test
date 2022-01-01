@@ -367,7 +367,7 @@ class PlayState extends MusicBeatState
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
                 MOM_X = stageData.opponent[0];
-		MOL_Y = stageData.opponent[1];
+		MOM_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
