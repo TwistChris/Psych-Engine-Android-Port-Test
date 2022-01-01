@@ -787,15 +787,11 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-	        mom = new Character(120, 40, "mom");
+	        mom = new Character(90, 40, "mom");
 		startCharacterPos(mom);
 		momGroup.add(mom);
 
-                dad2 = new Character(0, 0, "dad");
-		startCharacterPos(dad2);
-		dad2Group.add(dad2);
-
-                pico = new Character(150, 0, "pico");
+                pico = new Character(110, 40, "pico");
 		startCharacterPos(pico);
 		picoGroup.add(pico);
 		
@@ -810,10 +806,6 @@ class PlayState extends MusicBeatState
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
 			mom.visible = false;
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-                        dad2.visible = false;
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
