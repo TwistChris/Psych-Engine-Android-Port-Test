@@ -795,25 +795,9 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad2);
 		dad2Group.add(dad2);
 
-                spooky = new Character(-230, 60, "spooky");
-		startCharacterPos(spooky);
-		spookyGroup.add(spooky);
-             
-                monster = new Character(-200, 60, "monster");
-		startCharacterPos(monster);
-		monsterGroup.add(monster);
-
                 pico = new Character(150, 0, "pico");
 		startCharacterPos(pico);
 		picoGroup.add(pico);
-          
-                spirit = new Character(-160, 400, "spirit");
-		startCharacterPos(spirit);
-		spiritGroup.add(spirit);
-
-                whitty = new Character(-240, 80, "whitty");
-		startCharacterPos(whitty);
-		whittyGroup.add(whitty);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -825,35 +809,15 @@ class PlayState extends MusicBeatState
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			mom = new Character(120, 40, "nothing");
+			mom.visible = false;
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			dad2 = new Character(0, 0, "nothing");
+                        dad2.visible = false;
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			spooky = new Character(-230, 60, "nothing");
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-			monster = new Character(-200, 60, "nothing");
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-			pico = new Character(150, 0, "nothing");
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-                        spirit = new Character(-160, 400, "nothing");
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-		        whitty = new Character(-240, 80, "nothing");
-                }
-
-                if(boyfriend.curCharacter.startsWith('boyfriend')) {
-		        dad = new Character(0, 0, "nothing");
+			pico.visible = false;
                 }
 
                 switch bfsel{
