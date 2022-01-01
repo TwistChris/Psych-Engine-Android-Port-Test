@@ -2333,28 +2333,49 @@ class PlayState extends MusicBeatState
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
-						}
-
-                                                var animToPlay:String = '';
-						switch (Math.abs(daNote.noteData))
-						{
-							case 0:
-								animToPlay = 'singLEFT';
-							case 1:
-								animToPlay = 'singDOWN';
-							case 2:
-								animToPlay = 'singUP';
-							case 3:
-								animToPlay = 'singRIGHT';
-						}
-						if(daNote.noteType == 'MOM Sing') {
-							mom.playAnim(animToPlay + altAnim, true);
-							mom.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
-						}
+ 					        }
 					}
+
+                                        if (!daNote.mustPress && daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
+				        {
+					        if (Paths.formatToSongPath(SONG.song) != 'tutorial')
+						        camZooming = true;
+
+					        if(daNote.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
+						        dad.playAnim('hey', true);
+						        dad.specialAnim = true;
+						        dad.heyTimer = 0.6;
+					        } else if(!daNote.noAnimation) {
+						        var altAnim:String = "";
+
+						        if (SONG.notes[Math.floor(curStep / 16)] != null)
+						        {
+							        if (SONG.notes[Math.floor(curStep / 16)].altAnim || daNote.noteType == 'Alt Animation') {
+								        altAnim = '-alt';
+							        }
+						        }
+
+						        var animToPlay:String = '';
+						        switch (Math.abs(daNote.noteData))
+						        {
+							        case 0:
+								       animToPlay = 'singLEFT';
+							        case 1:
+								       animToPlay = 'singDOWN';
+							        case 2:
+								       animToPlay = 'singUP';
+							        case 3:
+								       animToPlay = 'singRIGHT';
+						        }
+						        if(daNote.noteType == 'MOM Sing') {
+							        mom.playAnim(animToPlay + altAnim, true);
+							        mom.holdTimer = 0;
+						        } else {
+							        dad.playAnim(animToPlay + altAnim, true);
+							        dad.holdTimer = 0;
+ 					                }
+					
+                                        }
 
 					if (SONG.needsVoices)
 						vocals.volume = 1;
