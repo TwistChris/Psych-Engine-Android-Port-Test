@@ -1367,6 +1367,10 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 					}
+                                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
+					{
+						mom.dance();
+					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
 						dad.dance();
@@ -2325,6 +2329,13 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+						}
+						if(daNote.noteType == 'MOM Sing') {
+							mom.playAnim(animToPlay + altAnim, true);
+							mom.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
