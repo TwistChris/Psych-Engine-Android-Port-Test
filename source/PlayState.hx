@@ -852,6 +852,10 @@ class PlayState extends MusicBeatState
 			whitty.visible = false;
                 }
 
+                if(boyfriend.curCharacter.startsWith('boyfriend')) {
+			dad.visible = false;
+                }
+
                 switch bfsel{
 			case 0:
 				boyfriend = new Boyfriend(0, 0, SONG.player1);
