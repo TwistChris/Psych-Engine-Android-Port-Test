@@ -804,12 +804,12 @@ class PlayState extends MusicBeatState
 		monsterGroup.add(monster);
 
                 pico = new Character(150, 0, "pico");
-		startCharacterPos(dad2);
-		dad2Group.add(dad2);
+		startCharacterPos(pico);
+		picoGroup.add(pico);
 
                 spirit = new Character(-210, 400, "spirit");
-		startCharacterPos();
-		spookyGroup.add(spooky);
+		startCharacterPos(spirit);
+		spiritGroup.add(spirit);
 
                 whitty = new Character(-240, 80, "whitty");
 		startCharacterPos(whitty);
