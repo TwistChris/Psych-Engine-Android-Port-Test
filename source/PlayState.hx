@@ -825,35 +825,35 @@ class PlayState extends MusicBeatState
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			mom.visible = false;
+			mom = new Character(120, 40, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			dad2.visible = false;
+			dad2 = new Character(0, 0, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			spooky.visible = false;
+			spooky = new Character(-230, 60, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			monster.visible = false;
+			nothing = new Character(-200, 60, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			pico.visible = false;
+			pico = new Character(150, 0, "nothing");
+                }
+
+                if(boyfriend.curCharacter.startsWith('bf )) {
+                        spirit = new Character(-160, 400, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			spirit.visible = false;
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-			whitty.visible = false;
+		        whitty = new Character(-240, 80, "nothing");
                 }
 
                 if(boyfriend.curCharacter.startsWith('boyfriend')) {
-			dad.visible = false;
+		        dad = new Character(0, 0, "nothing");
                 }
 
                 switch bfsel{
