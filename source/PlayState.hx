@@ -2334,6 +2334,19 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
+
+                                                var animToPlay:String = '';
+						switch (Math.abs(daNote.noteData))
+						{
+							case 0:
+								animToPlay = 'singLEFT';
+							case 1:
+								animToPlay = 'singDOWN';
+							case 2:
+								animToPlay = 'singUP';
+							case 3:
+								animToPlay = 'singRIGHT';
+						}
 						if(daNote.noteType == 'MOM Sing') {
 							mom.playAnim(animToPlay + altAnim, true);
 							mom.holdTimer = 0;
@@ -3905,6 +3918,10 @@ class PlayState extends MusicBeatState
 			if (boyfriend.animation.curAnim.name != null && !boyfriend.animation.curAnim.name.startsWith("sing"))
 			{
 				boyfriend.dance();
+			}
+                        if (mom.animation.curAnim.name != null && !mom.animation.curAnim.name.startsWith("sing"))
+			{
+				mom.dance();
 			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
