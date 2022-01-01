@@ -2374,7 +2374,6 @@ class PlayState extends MusicBeatState
 							        dad.playAnim(animToPlay + altAnim, true);
 							        dad.holdTimer = 0;
  					                }
-					
                                         }
 
 					if (SONG.needsVoices)
