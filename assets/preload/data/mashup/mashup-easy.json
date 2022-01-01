@@ -1,6 +1,6 @@
 {
      "song" : {
-         "player1" : "bfd"
+         "player1" : "boyfriend"
         ,"notes" : [
              {
                  "lengthInSteps" : 16
@@ -8033,6 +8033,7 @@
         ,"sections" : 0
         ,"stage" : "stage"
         ,"bpm" : 180
-        ,"gf" : "speaker"
+        ,"player2" : "gf"
+        ,"player3" : "gf"
     }
 }
