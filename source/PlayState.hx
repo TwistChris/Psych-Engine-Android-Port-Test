@@ -799,7 +799,7 @@ class PlayState extends MusicBeatState
 		startCharacterPos(spooky);
 		spookyGroup.add(spooky);
              
-                monster = new Character(-200, 60, monster");
+                monster = new Character(-200, 60, "monster");
 		startCharacterPos(monster);
 		monsterGroup.add(monster);
 
