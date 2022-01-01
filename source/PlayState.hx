@@ -3998,6 +3998,34 @@ class PlayState extends MusicBeatState
 			{
 				mom.dance();
 			}
+                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
+		        {
+				mom.dance();
+			}
+                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
+			{
+			        dad2.dance();
+			}
+			if (spooky.animation.curAnim != null && !spooky.animation.curAnim.name.startsWith('sing'))
+			{
+				spooky.dance();
+			}
+                        if (monster.animation.curAnim != null && !monster.animation.curAnim.name.startsWith('sing'))
+			{
+			        monster.dance();
+			}
+                        if (pico.animation.curAnim != null && !pico.animation.curAnim.name.startsWith('sing'))
+			{
+		                pico.dance();
+			}
+			if (spirit.animation.curAnim != null && !spirit.animation.curAnim.name.startsWith('sing'))
+			{
+				spirit.dance();
+			}
+                        if (whitty.animation.curAnim != null && !whitty.animation.curAnim.name.startsWith('sing'))
+			{
+				whitty.dance();
+			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
 				dad.dance();
