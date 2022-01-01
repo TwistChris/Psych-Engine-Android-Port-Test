@@ -113,6 +113,18 @@ class PlayState extends MusicBeatState
 	public var GF_Y:Float = 130;
         public var MOM_X:Float = 70;
 	public var MOM_Y:Float = 70;
+        public var DAD2_X:Float = 770;
+	public var DAD2_Y:Float = 100;
+	public var SPOOKY_X:Float = 100;
+	public var SPOOKY_Y:Float = 100;
+	public var MONSTER_X:Float = 400;
+	public var MONSTER_Y:Float = 130;
+        public var PICO_X:Float = 70;
+	public var PICO_Y:Float = 70;
+        public var SPIRIT_X:Float = 400;
+	public var SPIRIT_Y:Float = 130;
+        public var WHITTY_X:Float = 70;
+	public var WHITTY_Y:Float = 70;
 	
 	public static var songSpeed:Float = 0;
 	
@@ -120,6 +132,12 @@ class PlayState extends MusicBeatState
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
         public var momGroup:FlxSpriteGroup;
+        public var dad2Group:FlxSpriteGroup;
+	public var spookyGroup:FlxSpriteGroup;
+	public var monsterGroup:FlxSpriteGroup;
+        public var picoGroup:FlxSpriteGroup;
+        public var spiritGroup:FlxSpriteGroup;
+        public var whittyGroup:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -137,6 +155,12 @@ class PlayState extends MusicBeatState
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
         public var mom:Character;
+        public var dad2:Character;
+	public var spooky:Character;
+	public var monster:Boyfriend;
+        public var pico:Character;
+        public var spirit:Boyfriend;
+        public var whitty:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -369,11 +393,29 @@ class PlayState extends MusicBeatState
 		DAD_Y = stageData.opponent[1];
                 MOM_X = stageData.opponent[0];
 		MOM_Y = stageData.opponent[1];
+                DAD2_X = stageData.opponent[0];
+		DAD2_Y = stageData.opponent[1];
+                SPOOKY_X = stageData.opponent[0];
+		SPOOKY_Y = stageData.opponent[1];
+                MONSTER_X = stageData.opponent[0];
+		MONSTER_Y = stageData.opponent[1];
+                PICO_X = stageData.opponent[0];
+		PICO_Y = stageData.opponent[1];
+                SPIRIT_X = stageData.opponent[0];
+		SPIRIT_Y = stageData.opponent[1];
+                WHITTY_X = stageData.opponent[0];
+		WHITTY_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
                 momGroup = new FlxSpriteGroup(MOM_X, MOM_Y);
+                dad2Group = new FlxSpriteGroup(DAD2_X, DAD2_Y);
+		spookyGroup = new FlxSpriteGroup(SPOOKY_X, SPOOKY_Y);
+		monsterGroup = new FlxSpriteGroup(MONSTER_X, MONSTER_Y);
+                picoGroup = new FlxSpriteGroup(PICO_X, PICO_Y);
+                spiritGroup = new FlxSpriteGroup(SPIRIT_X, SPIRIT_Y);
+                whittyGroup = new FlxSpriteGroup(WHITTY_X, WHITTY_Y);
 
 		switch (curStage)
 		{
