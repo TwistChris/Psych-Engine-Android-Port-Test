@@ -844,7 +844,7 @@ class PlayState extends MusicBeatState
 			pico = new Character(150, 0, "nothing");
                 }
 
-                if(boyfriend.curCharacter.startsWith('bf )) {
+                if(boyfriend.curCharacter.startsWith('bf')) {
                         spirit = new Character(-160, 400, "nothing");
                 }
 
