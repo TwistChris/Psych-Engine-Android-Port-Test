@@ -705,6 +705,12 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
                 add(momGroup);
+                add(dad2Group);
+		add(spookyGroup);
+                add(monsterGroup);
+                add(picoGroup);
+		add(spiritGroup);
+                add(whittyGroup);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -781,9 +787,33 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-	        mom = new Character(-130, 40, "mom");
+	        mom = new Character(120, 40, "mom");
 		startCharacterPos(mom);
 		momGroup.add(mom);
+
+                dad2 = new Character(0, 0, "dad");
+		startCharacterPos(dad2);
+		dad2Group.add(dad2);
+
+                spooky = new Character(-230, 60, "spooky");
+		startCharacterPos(spooky);
+		spookyGroup.add(spooky);
+
+                monster = new Character(-250, 30, "monster");
+		startCharacterPos(monster);
+		monsterGroup.add(monster);
+
+                pico = new Character(150, 0, "pico");
+		startCharacterPos(dad2);
+		dad2Group.add(dad2);
+
+                spirit = new Character(-210, 400, "spirit");
+		startCharacterPos();
+		spookyGroup.add(spooky);
+
+                whitty = new Character(-240, 80, "whitty");
+		startCharacterPos(whitty);
+		whittyGroup.add(whitty);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -794,40 +824,32 @@ class PlayState extends MusicBeatState
 			gf.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('gf')) {
+                if(boyfriend.curCharacter.startsWith('bf')) {
 			mom.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('spooky')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			dad2.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('monster')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			spooky.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('pico')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			monster.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('mom')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			pico.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('parents-christmas')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			spirit.visible = false;
                 }
 
-                if(dad.curCharacter.startsWith('senpai')) {
-			mom.visible = false;
-                }
-
-                if(dad.curCharacter.startsWith('spirit')) {
-			mom.visible = false;
-                }
-
-                if(dad.curCharacter.startsWith('tankman')) {
-			mom.visible = false;
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			whitty.visible = false;
                 }
 
                 switch bfsel{
@@ -837,12 +859,12 @@ class PlayState extends MusicBeatState
 		                boyfriendGroup.add(boyfriend);
 				trace("beta!");
 			case 1:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
+				boyfriend = new Boyfriend(0, 0, 'blue');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("blue!");
 			case 2:
-				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
+				boyfriend = new Boyfriend(0, 0, 'mean');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("mean!");
