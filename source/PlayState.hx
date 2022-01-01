@@ -2429,6 +2429,48 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
  					        }
+                                                if(daNote.noteType == 'DAD Sing') {
+							dad2.playAnim(animToPlay + altAnim, true);
+							dad2.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
+                                                if(daNote.noteType == 'SPOOKY Sing') {
+							spooky.playAnim(animToPlay + altAnim, true);
+							spooky.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
+                                                if(daNote.noteType == 'MONSTER Sing') {
+							monster.playAnim(animToPlay + altAnim, true);
+							monster.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
+                                                if(daNote.noteType == 'PICO Sing') {
+							pico.playAnim(animToPlay + altAnim, true);
+						        pico.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
+                                                if(daNote.noteType == 'SPIRIT Sing') {
+							spirit.playAnim(animToPlay + altAnim, true);
+							spirit.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
+                                                if(daNote.noteType == 'WHITTY Sing') {
+							whitty.playAnim(animToPlay + altAnim, true);
+							whitty.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+ 					        }
                                         }
 
 					if (SONG.needsVoices)
