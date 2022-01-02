@@ -115,16 +115,6 @@ class PlayState extends MusicBeatState
 	public var MOM_Y:Float = 70;
         public var DAD2_X:Float = 770;
 	public var DAD2_Y:Float = 100;
-	public var SPOOKY_X:Float = 100;
-	public var SPOOKY_Y:Float = 100;
-	public var MONSTER_X:Float = 40;
-	public var MONSTER_Y:Float = 10;
-        public var PICO_X:Float = 70;
-	public var PICO_Y:Float = 70;
-        public var SPIRIT_X:Float = 40;
-	public var SPIRIT_Y:Float = 10;
-        public var WHITTY_X:Float = 70;
-	public var WHITTY_Y:Float = 70;
 	
 	public static var songSpeed:Float = 0;
 	
@@ -133,11 +123,6 @@ class PlayState extends MusicBeatState
 	public var gfGroup:FlxSpriteGroup;
         public var momGroup:FlxSpriteGroup;
         public var dad2Group:FlxSpriteGroup;
-	public var spookyGroup:FlxSpriteGroup;
-	public var monsterGroup:FlxSpriteGroup;
-        public var picoGroup:FlxSpriteGroup;
-        public var spiritGroup:FlxSpriteGroup;
-        public var whittyGroup:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -156,11 +141,6 @@ class PlayState extends MusicBeatState
 	public var boyfriend:Boyfriend;
         public var mom:Character;
         public var dad2:Character;
-	public var spooky:Character;
-	public var monster:Character;
-        public var pico:Character;
-        public var spirit:Character;
-        public var whitty:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -395,27 +375,12 @@ class PlayState extends MusicBeatState
 		MOM_Y = stageData.opponent[1];
                 DAD2_X = stageData.opponent[0];
 		DAD2_Y = stageData.opponent[1];
-                SPOOKY_X = stageData.opponent[0];
-		SPOOKY_Y = stageData.opponent[1];
-                MONSTER_X = stageData.opponent[0];
-		MONSTER_Y = stageData.opponent[1];
-                PICO_X = stageData.opponent[0];
-		PICO_Y = stageData.opponent[1];
-                SPIRIT_X = stageData.opponent[0];
-		SPIRIT_Y = stageData.opponent[1];
-                WHITTY_X = stageData.opponent[0];
-		WHITTY_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
                 momGroup = new FlxSpriteGroup(MOM_X, MOM_Y);
                 dad2Group = new FlxSpriteGroup(DAD2_X, DAD2_Y);
-		spookyGroup = new FlxSpriteGroup(SPOOKY_X, SPOOKY_Y);
-		monsterGroup = new FlxSpriteGroup(MONSTER_X, MONSTER_Y);
-                picoGroup = new FlxSpriteGroup(PICO_X, PICO_Y);
-                spiritGroup = new FlxSpriteGroup(SPIRIT_X, SPIRIT_Y);
-                whittyGroup = new FlxSpriteGroup(WHITTY_X, WHITTY_Y);
 
 		switch (curStage)
 		{
@@ -706,11 +671,6 @@ class PlayState extends MusicBeatState
 		add(boyfriendGroup);
                 add(momGroup);
                 add(dad2Group);
-		add(spookyGroup);
-                add(monsterGroup);
-                add(picoGroup);
-		add(spiritGroup);
-                add(whittyGroup);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -791,9 +751,9 @@ class PlayState extends MusicBeatState
 		startCharacterPos(mom);
 		momGroup.add(mom);
 
-                pico = new Character(110, 40, "pico");
-		startCharacterPos(pico);
-		picoGroup.add(pico);
+                dad2 = new Character(110, 40, "dad");
+		startCharacterPos(dad2);
+		dad2Group.add(dad2);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -809,7 +769,7 @@ class PlayState extends MusicBeatState
                 }
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			pico.visible = false;
+			dad2.visible = false;
                 }
 
                 switch bfsel{
@@ -1399,26 +1359,6 @@ class PlayState extends MusicBeatState
                                         if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
 					{
 						dad2.dance();
-					}
-					if (spooky.animation.curAnim != null && !spooky.animation.curAnim.name.startsWith('sing'))
-					{
-						spooky.dance();
-					}
-                                        if (monster.animation.curAnim != null && !monster.animation.curAnim.name.startsWith('sing'))
-					{
-						monster.dance();
-					}
-                                        if (pico.animation.curAnim != null && !pico.animation.curAnim.name.startsWith('sing'))
-					{
-						pico.dance();
-					}
-					if (spirit.animation.curAnim != null && !spirit.animation.curAnim.name.startsWith('sing'))
-					{
-						spirit.dance();
-					}
-                                        if (whitty.animation.curAnim != null && !whitty.animation.curAnim.name.startsWith('sing'))
-					{
-						whitty.dance();
 					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
@@ -2392,41 +2332,6 @@ class PlayState extends MusicBeatState
                                                 if(daNote.noteType == 'DAD Sing') {
 							dad2.playAnim(animToPlay + altAnim, true);
 							dad2.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'SPOOKY Sing') {
-							spooky.playAnim(animToPlay + altAnim, true);
-							spooky.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'MONSTER Sing') {
-							monster.playAnim(animToPlay + altAnim, true);
-							monster.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'PICO Sing') {
-							pico.playAnim(animToPlay + altAnim, true);
-						        pico.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'SPIRIT Sing') {
-							spirit.playAnim(animToPlay + altAnim, true);
-							spirit.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'WHITTY Sing') {
-							whitty.playAnim(animToPlay + altAnim, true);
-							whitty.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
@@ -4000,33 +3905,9 @@ class PlayState extends MusicBeatState
 			{
 				mom.dance();
 			}
-                        if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
-		        {
-				mom.dance();
-			}
-                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
+                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith("sing"))
 			{
-			        dad2.dance();
-			}
-			if (spooky.animation.curAnim != null && !spooky.animation.curAnim.name.startsWith('sing'))
-			{
-				spooky.dance();
-			}
-                        if (monster.animation.curAnim != null && !monster.animation.curAnim.name.startsWith('sing'))
-			{
-			        monster.dance();
-			}
-                        if (pico.animation.curAnim != null && !pico.animation.curAnim.name.startsWith('sing'))
-			{
-		                pico.dance();
-			}
-			if (spirit.animation.curAnim != null && !spirit.animation.curAnim.name.startsWith('sing'))
-			{
-				spirit.dance();
-			}
-                        if (whitty.animation.curAnim != null && !whitty.animation.curAnim.name.startsWith('sing'))
-			{
-				whitty.dance();
+				dad2.dance();
 			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
