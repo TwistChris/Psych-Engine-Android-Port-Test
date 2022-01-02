@@ -113,8 +113,6 @@ class PlayState extends MusicBeatState
 	public var GF_Y:Float = 130;
         public var MOM_X:Float = 70;
 	public var MOM_Y:Float = 70;
-        public var DAD2_X:Float = 770;
-	public var DAD2_Y:Float = 100;
 	
 	public static var songSpeed:Float = 0;
 	
@@ -122,7 +120,6 @@ class PlayState extends MusicBeatState
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
         public var momGroup:FlxSpriteGroup;
-        public var dad2Group:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -140,7 +137,6 @@ class PlayState extends MusicBeatState
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
         public var mom:Character;
-        public var dad2:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -373,14 +369,11 @@ class PlayState extends MusicBeatState
 		DAD_Y = stageData.opponent[1];
                 MOM_X = stageData.opponent[0];
 		MOM_Y = stageData.opponent[1];
-                DAD2_X = stageData.opponent[0];
-		DAD2_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
                 momGroup = new FlxSpriteGroup(MOM_X, MOM_Y);
-                dad2Group = new FlxSpriteGroup(DAD2_X, DAD2_Y);
 
 		switch (curStage)
 		{
@@ -670,7 +663,6 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
                 add(momGroup);
-                add(dad2Group);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -750,10 +742,6 @@ class PlayState extends MusicBeatState
 	        mom = new Character(90, 40, "mom");
 		startCharacterPos(mom);
 		momGroup.add(mom);
-
-                dad2 = new Character(110, 40, "dad");
-		startCharacterPos(dad2);
-		dad2Group.add(dad2);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -768,10 +756,6 @@ class PlayState extends MusicBeatState
 			mom.visible = false;
                 }
 
-                if(boyfriend.curCharacter.startsWith('bf')) {
-			dad2.visible = false;
-                }
-
                 switch bfsel{
 			case 0:
 				boyfriend = new Boyfriend(0, 0, SONG.player1);
@@ -779,12 +763,12 @@ class PlayState extends MusicBeatState
 		                boyfriendGroup.add(boyfriend);
 				trace("beta!");
 			case 1:
-				boyfriend = new Boyfriend(0, 0, 'blue');
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-blue');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("blue!");
 			case 2:
-				boyfriend = new Boyfriend(0, 0, 'mean');
+				boyfriend = new Boyfriend(0, 0, SONG.player1 + '-mean');
                                 startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
 				trace("mean!");
@@ -1355,10 +1339,6 @@ class PlayState extends MusicBeatState
                                         if (mom.animation.curAnim != null && !mom.animation.curAnim.name.startsWith('sing'))
 					{
 						mom.dance();
-					}
-                                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
-					{
-						dad2.dance();
 					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
@@ -2325,13 +2305,6 @@ class PlayState extends MusicBeatState
                                                 if(daNote.noteType == 'MOM Sing') {
 							mom.playAnim(animToPlay + altAnim, true);
 							mom.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
- 					        }
-                                                if(daNote.noteType == 'DAD Sing') {
-							dad2.playAnim(animToPlay + altAnim, true);
-							dad2.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
@@ -3904,10 +3877,6 @@ class PlayState extends MusicBeatState
                         if (mom.animation.curAnim.name != null && !mom.animation.curAnim.name.startsWith("sing"))
 			{
 				mom.dance();
-			}
-                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith("sing"))
-			{
-				dad2.dance();
 			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
