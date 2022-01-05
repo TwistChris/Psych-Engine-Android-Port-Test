@@ -111,12 +111,18 @@ class PlayState extends MusicBeatState
 	public var DAD_Y:Float = 100;
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
+        public var DADDY_X:Float = 100;
+	public var DADDY_Y:Float = 100;
+	public var SP_X:Float = 400;
+	public var SP_Y:Float = 130;
 	
 	public static var songSpeed:Float = 0;
 	
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
+        public var daddyGroup:FlxSpriteGroup;
+	public var spGroup:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -133,6 +139,8 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
+        public var daddy:Character;
+	public var sp:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -363,10 +371,16 @@ class PlayState extends MusicBeatState
 		GF_Y = stageData.girlfriend[1];
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
+                DADDY_X = stageData.opponent[0];
+		DADDY_Y = stageData.opponent[1];
+                SP_X = stageData.opponent[0];
+		SP_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
+                daddyGroup = new FlxSpriteGroup(DADDY_X, DADDY_Y);
+		spGroup = new FlxSpriteGroup(SP_X, SP_Y);
 
 		switch (curStage)
 		{
@@ -655,6 +669,14 @@ class PlayState extends MusicBeatState
 
 		add(dadGroup);
 		add(boyfriendGroup);
+
+                if (curSong == 'Fresh')
+
+                add(gfGroup);
+                add(spGroup);
+                add(daddyGroup);
+		add(boyfriendGroup);
+
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -730,6 +752,10 @@ class PlayState extends MusicBeatState
 		dad = new Character(0, 0, SONG.player2);
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
+
+                daddy = new Character(100, 100, 'dad');
+
+                sp = new Character(-100, -100, 'spooky');
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
