@@ -670,7 +670,7 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-                if (curSong == 'Fresh')
+                if (curSong == 'Mashup')
 
                 add(gfGroup);
                 add(spGroup);
