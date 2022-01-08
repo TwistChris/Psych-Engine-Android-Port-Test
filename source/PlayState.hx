@@ -670,12 +670,12 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-                if(SONG.song == 'Mashup') {
+                if (curStage == 'stage')
                        add(gfGroup);
                        add(spGroup);
+                       add(dadGroup);
                        add(daddyGroup);
 		       add(boyfriendGroup);
-                }
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -1007,6 +1007,13 @@ class PlayState extends MusicBeatState
 
 			add(mcontrols);
 		#end		
+
+                if(SONG.song == 'Mashup') {
+                       add(gfGroup);
+                       add(spGroup);
+                       add(daddyGroup);
+		       add(boyfriendGroup);
+                }
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
