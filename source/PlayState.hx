@@ -667,15 +667,12 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
+                if (curStage == 'stage')
+                        add(spGroup);
+                        add(daddyGroup);
+
 		add(dadGroup);
 		add(boyfriendGroup);
-
-                if (curStage == 'stage')
-                       add(gfGroup);
-                       add(spGroup);
-                       add(dadGroup);
-                       add(daddyGroup);
-		       add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
@@ -753,8 +750,10 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 
                 daddy = new Character(100, 100, 'dad');
+                startCharacterPos(daddy);
 
                 sp = new Character(-100, -100, 'spooky');
+                startCharacterPos(sp);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -1007,13 +1006,6 @@ class PlayState extends MusicBeatState
 
 			add(mcontrols);
 		#end		
-
-                if(SONG.song == 'Mashup') {
-                       add(gfGroup);
-                       add(spGroup);
-                       add(daddyGroup);
-		       add(boyfriendGroup);
-                }
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
