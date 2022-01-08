@@ -668,8 +668,10 @@ class PlayState extends MusicBeatState
 			add(limo);
 
                 if (curStage == 'stage')
-                        add(spGroup);
+                        add(dad);
                         add(daddyGroup);
+                        add(sp);
+                        add(spGroup);
 
 		add(dadGroup);
 		add(boyfriendGroup);
