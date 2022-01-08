@@ -670,13 +670,12 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-                if (curSong == 'Mashup')
-
-                add(gfGroup);
-                add(spGroup);
-                add(daddyGroup);
-		add(boyfriendGroup);
-
+                if(SONG.song == 'Mashup') {
+                       add(gfGroup);
+                       add(spGroup);
+                       add(daddyGroup);
+		       add(boyfriendGroup);
+                }
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
