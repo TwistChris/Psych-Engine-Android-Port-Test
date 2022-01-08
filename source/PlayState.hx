@@ -772,6 +772,10 @@ class PlayState extends MusicBeatState
 			sp.visible = false;
                 }
 
+                if(boyfriend.curCharacter.startsWith('boyfriend')) {
+			dad.visible = false;
+                }
+
                 switch bfsel{
 			case 0:
 				boyfriend = new Boyfriend(0, 0, SONG.player1);
@@ -1351,6 +1355,14 @@ class PlayState extends MusicBeatState
 					if (boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing'))
 					{
 						boyfriend.dance();
+					}
+                                        if (daddy.animation.curAnim != null && !daddy.animation.curAnim.name.startsWith('sing'))
+					{
+						daddy.dance();
+					}
+                                        if (sp.animation.curAnim != null && !sp.animation.curAnim.name.startsWith('sing'))
+					{
+						sp.dance();
 					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
@@ -2310,6 +2322,20 @@ class PlayState extends MusicBeatState
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+						}
+                                                if(daNote.noteType == 'DAD Sing') {
+							daddy.playAnim(animToPlay + altAnim, true);
+							daddy.holdTimer = 0;
+						} else {
+							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
+						}
+                                                if(daNote.noteType == 'SP Sing') {
+							sp.playAnim(animToPlay + altAnim, true);
+							sp.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
