@@ -667,13 +667,9 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-                if (curStage == 'stage')
-                        add(dad);
-                        add(daddyGroup);
-                        add(sp);
-                        add(spGroup);
-
 		add(dadGroup);
+                add(daddyGroup);
+                add(spGroup);
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
@@ -753,9 +749,11 @@ class PlayState extends MusicBeatState
 
                 daddy = new Character(100, 100, 'dad');
                 startCharacterPos(daddy);
+                daddyGroup.add(daddy);
 
                 sp = new Character(-100, -100, 'spooky');
                 startCharacterPos(sp);
+                spGroup.add(sp);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -765,6 +763,14 @@ class PlayState extends MusicBeatState
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
 		}
+
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			daddy.visible = false;
+                }
+
+                if(boyfriend.curCharacter.startsWith('bf')) {
+			sp.visible = false;
+                }
 
                 switch bfsel{
 			case 0:
@@ -3872,6 +3878,14 @@ class PlayState extends MusicBeatState
 			if (boyfriend.animation.curAnim.name != null && !boyfriend.animation.curAnim.name.startsWith("sing"))
 			{
 				boyfriend.dance();
+			}
+                        if (daddy.animation.curAnim.name != null && !daddy.animation.curAnim.name.startsWith("sing"))
+			{
+				daddy.dance();
+			}
+                        if (sp.animation.curAnim.name != null && !sp.animation.curAnim.name.startsWith("sing"))
+			{
+				sp.dance();
 			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
