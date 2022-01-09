@@ -668,8 +668,7 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
-                add(daddyGroup);
-                add(spGroup);
+                add(spGroup.add(sp));
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
@@ -753,7 +752,6 @@ class PlayState extends MusicBeatState
 
                 sp = new Character(-100, -100, 'spooky');
                 startCharacterPos(sp);
-                spGroup.add(sp);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
