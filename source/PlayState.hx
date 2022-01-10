@@ -661,7 +661,7 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
-                add(spGroup.add(sp));
+                add(dad2Group);
 		add(boyfriendGroup);
 		
 		if(curStage == 'spooky') {
