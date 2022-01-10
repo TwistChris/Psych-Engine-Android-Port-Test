@@ -111,18 +111,15 @@ class PlayState extends MusicBeatState
 	public var DAD_Y:Float = 100;
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
-        public var DADDY_X:Float = 100;
-	public var DADDY_Y:Float = 100;
-	public var SP_X:Float = 400;
-	public var SP_Y:Float = 130;
+        public var DAD2_X:Float = 100;
+	public var DAD2_Y:Float = 100;
 	
 	public static var songSpeed:Float = 0;
 	
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
-        public var daddyGroup:FlxSpriteGroup;
-	public var spGroup:FlxSpriteGroup;
+        public var dad2Group:FlxSpriteGroup;
 
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -139,8 +136,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
-        public var daddy:Character;
-	public var sp:Character;
+        public var dad2:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -371,16 +367,13 @@ class PlayState extends MusicBeatState
 		GF_Y = stageData.girlfriend[1];
 		DAD_X = stageData.opponent[0];
 		DAD_Y = stageData.opponent[1];
-                DADDY_X = stageData.opponent[0];
-		DADDY_Y = stageData.opponent[1];
-                SP_X = stageData.opponent[0];
-		SP_Y = stageData.opponent[1];
+                DAD2_X = stageData.opponent[0];
+		DAD2_Y = stageData.opponent[1];
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
-                daddyGroup = new FlxSpriteGroup(DADDY_X, DADDY_Y);
-		spGroup = new FlxSpriteGroup(SP_X, SP_Y);
+                dad2Group = new FlxSpriteGroup(DAD2_X, DAD2_Y);
 
 		switch (curStage)
 		{
@@ -746,12 +739,9 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 
-                daddy = new Character(100, 100, 'dad');
-                startCharacterPos(daddy);
-                daddyGroup.add(daddy);
-
-                sp = new Character(-100, -100, 'spooky');
-                startCharacterPos(sp);
+                dad2 = new Character(180, -10, 'dad');
+                startCharacterPos(dad2);
+                dad2Group.add(dad2);
 		
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
@@ -763,15 +753,7 @@ class PlayState extends MusicBeatState
 		}
 
                 if(boyfriend.curCharacter.startsWith('bf')) {
-			daddy.visible = false;
-                }
-
-                if(boyfriend.curCharacter.startsWith('bf')) {
-			sp.visible = false;
-                }
-
-                if(boyfriend.curCharacter.startsWith('boyfriend')) {
-			dad.visible = false;
+			dad2.visible = false;
                 }
 
                 switch bfsel{
@@ -1354,13 +1336,9 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.dance();
 					}
-                                        if (daddy.animation.curAnim != null && !daddy.animation.curAnim.name.startsWith('sing'))
+                                        if (dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
 					{
-						daddy.dance();
-					}
-                                        if (sp.animation.curAnim != null && !sp.animation.curAnim.name.startsWith('sing'))
-					{
-						sp.dance();
+						dad2.dance();
 					}
 					if (dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 					{
@@ -2317,6 +2295,7 @@ class PlayState extends MusicBeatState
 							case 3:
 								animToPlay = 'singRIGHT';
 						}
+
 						if(daNote.noteType == 'GF Sing') {
 							gf.playAnim(animToPlay + altAnim, true);
 							gf.holdTimer = 0;
@@ -2324,20 +2303,14 @@ class PlayState extends MusicBeatState
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 						}
+
                                                 if(daNote.noteType == 'DAD Sing') {
 							daddy.playAnim(animToPlay + altAnim, true);
 							daddy.holdTimer = 0;
 						} else {
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
-						}
-                                                if(daNote.noteType == 'SP Sing') {
-							sp.playAnim(animToPlay + altAnim, true);
-							sp.holdTimer = 0;
-						} else {
-							dad.playAnim(animToPlay + altAnim, true);
-							dad.holdTimer = 0;
-						}
+                                                }
 					}
 
 					if (SONG.needsVoices)
@@ -3903,13 +3876,9 @@ class PlayState extends MusicBeatState
 			{
 				boyfriend.dance();
 			}
-                        if (daddy.animation.curAnim.name != null && !daddy.animation.curAnim.name.startsWith("sing"))
+                        if (dad2.animation.curAnim.name != null && !dad2.animation.curAnim.name.startsWith("sing"))
 			{
-				daddy.dance();
-			}
-                        if (sp.animation.curAnim.name != null && !sp.animation.curAnim.name.startsWith("sing"))
-			{
-				sp.dance();
+				dad2.dance();
 			}
 			if (dad.animation.curAnim.name != null && !dad.animation.curAnim.name.startsWith("sing") && !dad.stunned)
 			{
